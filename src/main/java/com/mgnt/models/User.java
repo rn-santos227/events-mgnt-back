@@ -62,9 +62,9 @@ public class User {
 
   public Date getCreatedAt() {
     return createdAt;
-}
+  }
 
-public Date getUpdatedAt() {
+  public Date getUpdatedAt() {
     return updatedAt;
-}
+  }
 }
