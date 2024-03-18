@@ -16,8 +16,32 @@ public class User {
   private String email;
   private String password;
 
+  public String getPassword() {
+    return this.password;
+  }
+
   public void setPassword(String password) {
     BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
     this.password = passwordEncoder.encode(password);
+  }
+
+  public Long getId() {
+    return id;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
   }
 }
