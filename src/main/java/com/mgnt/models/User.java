@@ -4,6 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
+import java.util.Date;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -15,6 +18,18 @@ public class User {
   private String name;
   private String email;
   private String password;
+  private Date createdAt;
+  private Date updatedAt;
+
+  @PrePersist
+  protected void onCreate() {
+    createdAt = new Date();
+  }
+
+  @PreUpdate
+  protected void onUpdate() {
+    updatedAt = new Date();
+  }
 
   public String getPassword() {
     return this.password;
@@ -44,4 +59,12 @@ public class User {
   public void setEmail(String email) {
     this.email = email;
   }
+
+  public Date getCreatedAt() {
+    return createdAt;
+}
+
+public Date getUpdatedAt() {
+    return updatedAt;
+}
 }
