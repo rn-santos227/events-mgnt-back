@@ -24,4 +24,4 @@ logs/
 .DS_Store
 Thumbs.db
 
-resources/
+.env
