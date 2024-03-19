@@ -22,7 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter  {
     .and()
     .csrf().csrfTokenRepository(csrfTokenRepository());
   }
-  
+
   @Bean
   public CsrfTokenRepository csrfTokenRepository() {
     return new CookieCsrfTokenRepository();
