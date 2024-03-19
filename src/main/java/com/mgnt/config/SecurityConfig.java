@@ -17,10 +17,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter  {
   protected void configure(HttpSecurity http) throws Exception {
       http
       .authorizeRequests()
-      .antMatchers("/public/**")
-      .permitAll() 
-      .anyRequest()
-      .authenticated();
+      .antMatchers("/public/**").permitAll() 
+      .anyRequest().authenticated();
     }
   @Bean
   public CsrfTokenRepository csrfTokenRepository() {
