@@ -1,5 +1,6 @@
 package com.mgnt.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,8 +16,11 @@ public class User {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-  private String name;
+
+  @Column(unique = true)
   private String email;
+
+  private String name;
   private String password;
   private Date createdAt;
   private Date updatedAt;
