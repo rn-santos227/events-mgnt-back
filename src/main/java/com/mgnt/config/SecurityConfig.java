@@ -1,5 +1,7 @@
 package com.mgnt.config;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -9,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
 
@@ -30,6 +33,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter  {
     .authorizeRequests()
     .antMatchers("/public/**").permitAll() 
     .anyRequest().authenticated()
+    .and()
+    .exceptionHandling().accessDeniedHandler(accessDeniedHandler())
     .and()
     .csrf().csrfTokenRepository(csrfTokenRepository());
   }
@@ -53,5 +58,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter  {
   @Bean
   public PasswordEncoder passwordEncoder() {
     return new BCryptPasswordEncoder();
+  }
+
+  private AccessDeniedHandler accessDeniedHandler() {
+    return (request, response, accessDeniedException) -> {
+      response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+      response.getWriter().write("Access Denied");
+    };
   }
 }
