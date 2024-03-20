@@ -30,7 +30,7 @@ public class AuthController {
     this.userService = userService;
   }
 
-  @PostMapping("/public/login")
+  @PostMapping("/login")
   public ResponseEntity<?> login(@RequestBody Map<String, String> loginRequest) {
     String email = loginRequest.get("email");
     String password = loginRequest.get("password");
