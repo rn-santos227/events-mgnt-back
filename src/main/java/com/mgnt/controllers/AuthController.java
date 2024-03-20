@@ -36,14 +36,7 @@ public class AuthController {
     String email = loginRequest.get("email");
     String password = loginRequest.get("password");
 
-    Authentication authentication = authenticationManager.authenticate(
-      new UsernamePasswordAuthenticationToken(email, password));
-
-    UserDetails userDetails = userService.loadUserByUsername(email);
-    String token = tokenService.generateToken(((User) userDetails).getId());
-
     Map<String, String> response = new HashMap<>();
-    response.put("token", token);
 
     return ResponseEntity.ok(response);
   }
