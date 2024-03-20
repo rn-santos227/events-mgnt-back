@@ -11,12 +11,13 @@ import java.util.Map;
 
 @RestController
 public class TestController {
-  @GetMapping("/public/test")
+  
+  @GetMapping("/test")
   public String test() {
     return "Hello, this is a test route!";
   }
 
-  @PostMapping("/public/user")
+  @PostMapping("/user")
   public ResponseEntity<?> user(@RequestBody Map<String, String> loginRequest) {
     String email = loginRequest.get("email");
     String password = loginRequest.get("password");

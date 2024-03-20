@@ -31,13 +31,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter  {
   protected void configure(HttpSecurity http) throws Exception {
     http
     .authorizeRequests()
-    .antMatchers("/public/**").permitAll() 
+    .antMatchers("/test").permitAll() 
     .anyRequest().authenticated()
     .and()
     .exceptionHandling().accessDeniedHandler(accessDeniedHandler())
     .and()
     .csrf().csrfTokenRepository(csrfTokenRepository());
   }
+
 
   @Override
   protected void configure(AuthenticationManagerBuilder auth) throws Exception {
