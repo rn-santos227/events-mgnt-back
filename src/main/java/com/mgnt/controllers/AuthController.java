@@ -20,5 +20,14 @@ import java.util.Map;
 
 @RestController
 public class AuthController {
-  
+  private final AuthenticationManager authenticationManager;
+  private final TokenService tokenService;
+  private final UserService userService;
+
+  @Autowired
+  public AuthController(AuthenticationManager authenticationManager, TokenService tokenService, UserService userService) {
+    this.authenticationManager = authenticationManager;
+    this.tokenService = tokenService;
+    this.userService = userService;
+  }
 }
