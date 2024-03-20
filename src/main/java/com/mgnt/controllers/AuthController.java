@@ -36,9 +36,9 @@ public class AuthController {
     String password = loginRequest.get("password");
 
     try {
-        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
+      authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
     } catch (AuthenticationException e) {
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid email or password");
+      return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid email or password");
     }
 
     UserDetails userDetails = userService.loadUserByUsername(email);
