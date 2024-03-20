@@ -16,8 +16,8 @@ public class TestController {
     return "Hello, this is a test route!";
   }
 
-  @PostMapping("/public/test")
-  public ResponseEntity<?> login(@RequestBody Map<String, String> loginRequest) {
+  @PostMapping("/public/user")
+  public ResponseEntity<?> user(@RequestBody Map<String, String> loginRequest) {
     String email = loginRequest.get("email");
     String password = loginRequest.get("password");
 
