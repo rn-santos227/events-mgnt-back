@@ -1,27 +1,40 @@
-# Spring Boot
-/target/
-!.mvn/wrapper/maven-wrapper.jar
+HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
 
-# IDE/Editor
-.idea/
-.vscode/
-*.iml
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
 
-# Maven
-log/
-target/
+### IntelliJ IDEA ###
 .idea
+*.iws
 *.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
 
-# Gradle
-.gradle/
-/build/
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
 
-# Logs
-logs/
+### VS Code ###
+.vscode/
 
-# OS-specific
-.DS_Store
-Thumbs.db
-
-.env
+### Kotlin ###
+.kotlin
